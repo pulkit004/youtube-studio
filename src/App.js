@@ -14,12 +14,12 @@ class App extends Component {
           <Router>
             <Switch>
         
-          <Route path="/">
+          <Route exact path="/">
             <Registration />
           </Route>
-          <PrivateRoute path="/youtube-studio">
+          <Route exact path="/youtube-studio">
            <Main />
-          </PrivateRoute>
+          </Route>
         </Switch>
           </Router>
     )
@@ -50,7 +50,7 @@ function PrivateRoute({ children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: "/",
               state: { from: location }
             }}
           />
